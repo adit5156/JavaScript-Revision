@@ -8,11 +8,17 @@ let color = 'red';
 s1.addEventListener('mouseenter', ()=> {
    let randomNum = Math.floor(Math.random()*100)+1;
     s1.innerHTML = `<h1>${randomNum}</h1>`;
-    s1.style.backgroundColor = 'red'
 });
 
 s1.addEventListener('mouseleave', ()=> {
     s1.style.backgroundColor = 'white';
+});
+
+s1.addEventListener('dblclick', ()=> {
+    let val1 = Math.floor(Math.random()*255)+1;
+    let val2 = Math.floor(Math.random()*255)+1;
+    let val3 = Math.floor(Math.random()*255)+1;
+    s1.style.backgroundColor = `rgb(${val1}, ${val2}, ${val3})`;
 });
 
 s2.addEventListener('mouseenter', ()=> {
@@ -33,7 +39,7 @@ s2.addEventListener('mouseenter', ()=> {
 
 s2.addEventListener('mouseout', ()=> {
     s2.style.backgroundColor = 'white';
-})
+});
 
 s3.addEventListener('mouseenter', ()=> {
     function randomColor() {
@@ -59,9 +65,22 @@ s4.addEventListener('click', ()=> {
         s3.style.backgroundColor = `rgb(${val2}, ${val1}, ${val3})`;
     }
     randomColor2();
-})
+});
+
 s4.addEventListener('mouseleave', ()=> {
     s1.style.backgroundColor = 'white';
     s2.style.backgroundColor = 'white';
     s3.style.backgroundColor = 'white';
-})
+});
+
+
+
+// ****************************************** Custom Cursor *********************************************
+let main = document.getElementById('main');
+let cursor = document.getElementById('cursor');
+
+main.addEventListener('mousemove', (e)=> {
+    console.log(e.x, e.y);
+    cursor.style.left = e.x + "px";
+    cursor.style.top = e.y + "px";
+});
